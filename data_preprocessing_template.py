@@ -31,5 +31,5 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder # label encoder is
                                                               # OneHotEncoder enables encoding of cat-to-num data in order to be read flatly, ie not with rising numbers, tilting results
 labelencoder_X = LabelEncoder() # assign the method to a var we can use
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0]) # for the first column (0) of the x vector, transform cat data into num data, then record it into the x/indep array
-onehotencoder = OneHotEncoder() # assign the method to a var we can use
-onehotencoder.fit_transform(X[:, 0]) # shitty hack attempting to copy what we did last time, i didnt think it would work haha
+onehotencoder = OneHotEncoder(categorical_features = [0]) # this is just one of man optional params, at first i thought this should be set to all, but because we translated to num earlier, it's 0
+X = onehotencoder.fit_transform(X).toarray() # reassign to X as it is ultimately what we wish to change, run fot_transform to shorten code base.

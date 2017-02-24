@@ -27,9 +27,6 @@ imputer = imputer.fit(X[:, 1:3]) #fits the imputer method onto the vector/array 
 X[:, 1:3] = imputer.transform(X[:, 1:3]) #transforms any missing data points, based on our choices on line 25
 
 #Encoding categorical data
-from sklearn.preprocessing import LabelEncoder #LabelEncoder allows us to transform cat data into num data
-labelencoder_X = LabelEncoder() #Set our variables
-labelencoder_X.fit(["France", "Spain", "Germany"]) #Pull in cat data/classes we wish to encode
-list(labelencoder_X.classes_) #output the classes back to us
-labelencoder_X.transform(["France", "Spain", "Germany"]) # transform the classes into num data
-list(labelencoder_X.inverse_transform([2,2,1])) #output cat data back to us when we feed it num data
+from sklearn.preprocessing import LabelEncoder # label encoder is used to translate cat data into num data
+labelencoder_X = LabelEncoder() # assign the method to a var we can use
+X[:, 0] = labelencoder_X.fit_transform(X[:, 0]) # for the first column (0) of the x vector, transform cat data into num data, then record it into the x/indep array

@@ -18,7 +18,7 @@ import pandas as pd
 dataset = pd.read_csv('Data.csv') #use pandas to read csv data from a file
 X = dataset.iloc[:, :-1].values #independent variable vector, so, country, age, salary, the number is a stop point, -1 means the first 
                                 #from the right will not be included, as we calc UPTO the stop point, not including
-y = dataset.iloc[:, 3].values #dependent variable vector, purchased, in this instance
+Y = dataset.iloc[:, 3].values #dependent variable vector, purchased, in this instance
 
 #Sorting out missing data values
 from sklearn.preprocessing import Imputer 
@@ -33,3 +33,9 @@ labelencoder_X = LabelEncoder() # assign the method to a var we can use
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0]) # for the first column (0) of the x vector, transform cat data into num data, then record it into the x/indep array
 onehotencoder = OneHotEncoder(categorical_features = [0]) # this is just one of man optional params, at first i thought this should be set to all, but because we translated to num earlier, it's 0
 X = onehotencoder.fit_transform(X).toarray() # reassign to X as it is ultimately what we wish to change, run fot_transform to shorten code base.
+
+#Encoding of indep (purchased) vector
+labelencoder_Y = LabelEncoder() # much of this is the same as above
+Y = labelencoder_Y.fit_transform(Y[:, 0])
+onehotencoder_Y = OneHotEncoder(categorical_features = 'all', sparse = 'True') # at first i thought that i would be using the all and true params, i had touched this up, committing first attempt tho 
+Y = onehotencoder.fit_transform(Y).toarray()

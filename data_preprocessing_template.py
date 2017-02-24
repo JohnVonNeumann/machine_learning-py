@@ -27,6 +27,9 @@ imputer = imputer.fit(X[:, 1:3]) #fits the imputer method onto the vector/array 
 X[:, 1:3] = imputer.transform(X[:, 1:3]) #transforms any missing data points, based on our choices on line 25
 
 #Encoding categorical data
-from sklearn.preprocessing import LabelEncoder # label encoder is used to translate cat data into num data
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder # label encoder is used to translate cat data into num data
+                                                              # OneHotEncoder enables encoding of cat-to-num data in order to be read flatly, ie not with rising numbers, tilting results
 labelencoder_X = LabelEncoder() # assign the method to a var we can use
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0]) # for the first column (0) of the x vector, transform cat data into num data, then record it into the x/indep array
+onehotencoder = OneHotEncoder() # assign the method to a var we can use
+onehotencoder.fit_transform(X[:, 0]) # shitty hack attempting to copy what we did last time, i didnt think it would work haha

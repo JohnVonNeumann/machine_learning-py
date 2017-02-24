@@ -36,6 +36,4 @@ X = onehotencoder.fit_transform(X).toarray() # reassign to X as it is ultimately
 
 #Encoding of indep (purchased) vector
 labelencoder_Y = LabelEncoder() # much of this is the same as above
-Y = labelencoder_Y.fit_transform(Y[:, 0])
-onehotencoder_Y = OneHotEncoder(categorical_features = 'all', sparse = 'True') # at first i thought that i would be using the all and true params, i had touched this up, committing first attempt tho 
-Y = onehotencoder.fit_transform(Y).toarray()
+Y = labelencoder_Y.fit_transform(Y) # a much simpler version of waht i wrote, makes sense that seeing as it's just 1s and 0s there is no need at all to use onehotencoder

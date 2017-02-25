@@ -42,3 +42,8 @@ Y = labelencoder_Y.fit_transform(Y) # a much simpler version of waht i wrote, ma
 #Splitting the dataset for training and test use
 from sklearn.cross_validation import train_test_split #train_test_split is used to segregate test and train data in order to ensure we have datasets that minimise the risk of us overfitting our models
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0) # here we crtreate test and train sets, we outline set size, and becuase it always equals 1, we dont need to use the other number.
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+standard_scaler = StandardScaler()
+standard_scaler = standard_scaler.fit_transform(X, Y = None)

@@ -44,6 +44,7 @@ from sklearn.cross_validation import train_test_split #train_test_split is used 
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0) # here we crtreate test and train sets, we outline set size, and becuase it always equals 1, we dont need to use the other number.
 
 # Feature Scaling
-from sklearn.preprocessing import StandardScaler
-standard_scaler = StandardScaler()
-standard_scaler = standard_scaler.fit_transform(X, Y = None)
+from sklearn.preprocessing import StandardScaler # SS used to scale euclidean distances between values, in order to produce accurate results
+standard_scaler = StandardScaler() # assign the method to a var
+standard_scaler = standard_scaler.fit_transform(X, Y = None) # here is where I fuck up really, so i try and push both of them into the same method call, which really makes no sense
+                                                             # now that i think about it

@@ -4,12 +4,6 @@ Created on Wed Feb 22 21:18:11 2017
 
 @author: lw
 
-THIS TEMPLATE WILL BE USED TO START MOST ML PROJECTS AND FILES, IT CONTAINS 
-BASIC STEPS THAT WILL BE REQUIRED IN JUST ABOUT EVERY PROJECT, SHOULD MORE 
-STEPS BE REQUIRED (IE: YOU ARE FACED WITH DIRTY AND CATEGORICAL DATA, OR 
-REAL DATA, USE THE DATA_PREPROCESSING_TEMPLATE INSTEAD) AS THAT TEMPLATE WILL
-PROVIDE A BETTER GUIDE. THIS ONE IS ONLY BEING USED FOR THE REMAINDER OF MY 
-COURSE AS MOST OF THE DATASETS I WILL BE WORKING WITH, WILL BE MAINTAINED
 """
 
 #Import Libraries
@@ -26,14 +20,3 @@ Y = dataset.iloc[:, 1].values #dependent variable vector
 from sklearn.cross_validation import train_test_split #train_test_split is used to segregate test and train data in order to ensure we have datasets that minimise the risk of us overfitting our models
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0) # here we crtreate test and train sets, we outline set size, and becuase it always equals 1, we dont need to use the other number.
 
-# Feature Scaling
-#OPTIONAL, MAY BE REQUIRED FROM TIME TO TIME.
-
-from sklearn.preprocessing import StandardScaler # SS used to scale euclidean distances between values, in order to produce accurate results
-sc_X = StandardScaler() #create ss instance for X
-X_train = sc_X.fit_transform(X_train) 
-X_test = sc_X.transform(X_test) # here we have no need to fit as well as tform, as it was done on the prev line
-
-sc_Y = StandardScaler() # same as X iteration
-Y_train = sc_Y.fit_transform(Y_train)
-Y_test = sc_Y.transform(Y_test)

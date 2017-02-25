@@ -28,9 +28,12 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, rando
 
 # Feature Scaling
 #OPTIONAL, MAY BE REQUIRED FROM TIME TO TIME.
-"""
+
 from sklearn.preprocessing import StandardScaler # SS used to scale euclidean distances between values, in order to produce accurate results
-sc_X = StandardScaler() #cleaned up syntax, much nicer
-X_train = sc_X.fit_transform(X_train) #we recall X_train made on ln44 and scale it using the method
+sc_X = StandardScaler() #create ss instance for X
+X_train = sc_X.fit_transform(X_train) 
 X_test = sc_X.transform(X_test) # here we have no need to fit as well as tform, as it was done on the prev line
-#no need to scale y as we already have them in accetpable ranges due to a simple 2feature encode
+
+sc_Y = StandardScaler() # same as X iteration
+Y_train = sc_Y.fit_transform(Y_train)
+Y_test = sc_Y.transform(Y_test)

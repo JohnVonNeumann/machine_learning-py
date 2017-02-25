@@ -21,6 +21,6 @@ from sklearn.cross_validation import train_test_split #train_test_split is used 
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0) # here we crtreate test and train sets, we outline set size, and becuase it always equals 1, we dont need to use the other number.
 
 # Fitting the simple linear regression to training set
-from sklearn.linear_model import LinearRegression # import the LR functions
-X_train_LR = LinearRegression() # create a var for the methods to reside in
-X_train = X_train_LR.fit(X_train, Y_train, sample_weight = None ) # attempt to apply the methods to the training sets, using docsets
+from sklearn.linear_model import LinearRegression # import the LR class
+regressor = LinearRegression() # create a var for the methods to reside in
+regressor.fit(X_train, Y_train) # using the LR class, we call the fit method on our x_train and y_train datasets, or the indep and dep sets.

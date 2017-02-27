@@ -24,3 +24,10 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, rando
 from sklearn.linear_model import LinearRegression # import the LR class
 regressor = LinearRegression() # create a var for the methods to reside in
 regressor.fit(X_train, Y_train) # using the LR class, we call the fit method on our x_train and y_train datasets, or the indep and dep sets.
+
+# using our machine to predict test set results
+from sklearn.linear_model import LinearRegression
+predictor = LinearRegression() # set predict to the LR Class
+test = predictor.fit(X_test, Y_test) # i can get this line to run, as we need to fit the data to the LR
+predictor.predict(test)
+

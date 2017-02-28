@@ -35,3 +35,11 @@ plt.title('Salary vs Experience (Training Set)') #create a title for the graph
 plt.xlabel('Years of Experience') #label the x axis
 plt.ylabel('Salary') # label the y axis
 plt.show() # output the graph
+
+# visualise the test set results 
+plt.scatter(X_test, Y_test, color = 'red') #scatter red points with the test dataset, this is new data the machine hasnt not used before
+plt.plot(X_train, regressor.predict(X_train), color = 'blue') #create a blue regression line for real salary increases vs career length, we keep this the same as train graph as we need to see if the model is tuned correctly for REAL datas(test, not training)
+plt.title('Salary vs Experience (Test Set)') #create a title for the graph
+plt.xlabel('Years of Experience') #label the x axis
+plt.ylabel('Salary') # label the y axis
+plt.show() # output the graph

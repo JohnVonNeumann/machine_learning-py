@@ -18,7 +18,7 @@ Y = dataset.iloc[:, 1].values #dependent variable vector
 
 #Splitting the dataset for training and test use
 from sklearn.cross_validation import train_test_split #train_test_split is used to segregate test and train data in order to ensure we have datasets that minimise the risk of us overfitting our models
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 0) # here we crtreate test and train sets, we outline set size, and becuase it always equals 1, we dont need to use the other number.
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 1/3, random_state = 0) # here we crtreate test and train sets, we outline set size, and becuase it always equals 1, we dont need to use the other number.
 
 # Fitting the simple linear regression to training set
 from sklearn.linear_model import LinearRegression # import the LR class
@@ -26,8 +26,4 @@ regressor = LinearRegression() # create a var for the methods to reside in
 regressor.fit(X_train, Y_train) # using the LR class, we call the fit method on our x_train and y_train datasets, or the indep and dep sets.
 
 # using our machine to predict test set results
-from sklearn.linear_model import LinearRegression
-predictor = LinearRegression() # set predict to the LR Class
-test = predictor.fit(X_test, Y_test) # i can get this line to run, as we need to fit the data to the LR
-predictor.predict(test)
-
+y_pred = regressor.predict(X_test)

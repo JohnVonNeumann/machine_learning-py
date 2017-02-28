@@ -26,4 +26,12 @@ regressor = LinearRegression() # create a var for the methods to reside in
 regressor.fit(X_train, Y_train) # using the LR class, we call the fit method on our x_train and y_train datasets, or the indep and dep sets.
 
 # using our machine to predict test set results
-y_pred = regressor.predict(X_test)
+y_pred = regressor.predict(X_test) # y_pred because we are predicting the dependent var, that is we are predicting what the salary of someone should be given a career of n years
+
+# visualise the training set results 
+plt.scatter(X_train, Y_train, color = 'red') #scatter red points with the training dataset, this is real data
+plt.plot(X_train, regressor.predict(X_train), color = 'blue') #create a blue regression line for real salary increases vs career length
+plt.title('Salary vs Experience (Training Set)') #create a title for the graph
+plt.xlabel('Years of Experience') #label the x axis
+plt.ylabel('Salary') # label the y axis
+plt.show() # output the graph
